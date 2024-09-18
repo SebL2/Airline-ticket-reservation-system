@@ -1,0 +1,17 @@
+<html>
+<head>
+</head>
+<body>
+    <form action="/loginAuthCust" method="POST">
+        <input type="text" name = "email" placeholder="email" required/> </br>
+        <input type="password" name = "password" placeholder="password" required/></br>
+        <input type="submit" value = Login />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+
+</body>
+
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<head/>
+<body>
+<h1>Purchase tickets<h1/>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<h1> Enter card details </h1>
+<table>
+    
+    <form action="/finalizePurchase" method="POST">
+        <input type="hidden" name = 'flight_num' value = '{{flight_num}}'> </br>
+        <input type="hidden" name = "airline_name" value = '{{airline_name}}'></br>
+        <input type="hidden" name = "dep_date_time" value = '{{dep_date_time}}'></br>
+        <input type="hidden" name = "price" value = '{{price}}'></br>
+        <input type="text" name = "card_type" placeholder="card type" required/> </br>
+        <input type="number" name = "card_number" placeholder="card number" required/> </br>
+        <input type="text" name = "name_on_card" placeholder="name on card" required/> </br>
+        <label for="exp_date"> Expiration Date (YYYY-MM-DD)</label>
+        <input type="date" name = "exp_date"required/> </br>
+        <input type="submit" value = Purchase />
+
+    </form>
+
+<table/>
+
+<body/>
+
+
+<html/>

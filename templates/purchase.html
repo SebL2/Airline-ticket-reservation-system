@@ -1,0 +1,49 @@
+<html>
+<head>
+<head/>
+<body>
+<h1>Purchase tickets<h1/>
+<p> Available flights <p/>
+{%if data%}
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<table>
+    <tr>
+        <th>Flight Number</td>
+        <th>Departure date and time</td>
+        <th>Airline</td>
+        <th>Arrival date and time</td>
+        <th>Departure airport</td>
+        <th>Arrival airport</td>
+        <th>Price</td>
+    <tr/>
+    {%for line in data%}
+    <tr>
+        <td>{{line['flight_num']}}</td>
+        <td>{{line['dep_date_time']}}</td>
+        <td>{{line['airline_name']}}</td>
+        <td>{{line['arrival_date_time']}}</td>
+        <td>{{line['dep_airport']}}</td>
+        <td>{{line['arrival_airport']}}</td>
+        <td>{{line['base_price']}}</td>
+        <td><form action = '/purchaseTicket' method = 'POST'>
+            <input type= "hidden" name = 'airline_name' value = '{{line['airline_name']}}'/>
+            <input type= "hidden" name = 'flight_num' value = '{{line['flight_num']}}'/>
+            <input type= "hidden" name = 'dep_date_time' value =' {{line['dep_date_time']}}'/>
+            <input type= "hidden" name = 'price' value = '{{line['base_price']}}'/>
+            <input type= "submit" value =  "Purchase" /> 
+        </form>
+        </td>
+    <tr/>
+    {%endfor%}
+<table/>
+{%endif%}
+
+<body/>
+
+
+<html/>

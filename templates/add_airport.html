@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Add Airport</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<form action="/addAirport" method="POST">
+    <input type="text" name = "airport_name" placeholder="Airport Name" required/> </br>
+    <input type="text" name = "city" placeholder="City" required/> </br>
+    <input type="text" name = "country" placeholder="Country" required/> </br>
+    <input type="text" name = "type" placeholder="Type(international, domestic)" required/> </br>
+    <input type="submit" value = Add />
+</form>
+
+</body>
+
+
+</html>

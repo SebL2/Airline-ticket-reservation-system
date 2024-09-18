@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Report</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+</style>
+
+{% if data %}
+    <h3>Report</h3>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Tickets bought</th>
+        </tr>
+        {% for month in data %}
+            <tr>
+                <td>{{ month.year }}</td>
+                <td>{{ month.month }}</td>
+                <td>{{ month.tickets_sold }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
+<a href="/flights_staff">Back to staff page</a>
+</body>
+</html>

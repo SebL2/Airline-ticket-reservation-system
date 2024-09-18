@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Passengers</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+</style>
+
+{% if passengers %}
+    <h3>Passengers</h3>
+    <table>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Name</th>
+            <th>email</th>
+            <th>Phone number</th>
+        </tr>
+        {% for passenger in passengers %}
+            <tr>
+                <td>{{ passenger.ID }}</td>
+                <td>{{ passenger.name }}</td>
+                <td>{{ passenger.email }}</td>
+                <td>{{ passenger.phone_number }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<a href="/flights_staff">Back to staff page</a>
+</body>
+</html>

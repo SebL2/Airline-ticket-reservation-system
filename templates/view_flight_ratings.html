@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Flight Ratings</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+{% if avg_rating %}
+    <h3>Average Rating</h3>
+    <p>{{ avg_rating[0].avg_rating }} stars</p>
+{% endif %}
+
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+</style>
+
+{% if ratings %}
+    <h3>Flight Ratings</h3>
+    <table>
+        <tr>
+            <th>Rating</th>
+            <th>Comment</th>
+        </tr>
+        {% for flight_rating in ratings %}
+            <tr>
+                <td>{{ flight_rating.rating }}</td>
+                <td>{{ flight_rating.comment }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<a href="/flights_staff">Back to staff page</a>
+</body>
+</html>

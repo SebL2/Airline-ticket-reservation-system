@@ -1,0 +1,92 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Staff Page</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<h3>Create a Flight</h3>
+<form action="/createFlight" method="POST">
+    <input type="int" name = "flight_num" placeholder="Flight Number" required/> </br>
+	<input type="int" name = "airplane_id" placeholder="Airplane ID" required/> </br>
+	<input type="text" pattern="[A-Z]{0-5}" name = "dep_airport" placeholder="Destination Airport" required/> </br>
+	<input type="text" pattern="[A-Z]{0-5}" name = "arrival_airport" placeholder="Arrival Airport" required/> </br>
+	<input type="text" name = "dep_date_time" placeholder="departure date and time (yyyy-mm-dd hh:mm:ss)" required/> </br>
+	<input type="text" name = "arrival_date_time" placeholder="arrival date and time (yyyy-mm-dd hh:mm:ss)" required/> </br>
+    <input type="int" name = "base_price" placeholder="Base Price" required/> </br>
+	<input type="text" name = "status" placeholder="status" required/> </br>
+	<input type="submit" value = Create />
+</form><br><br>
+
+<h3>Check Passengers on Flight</h3>
+<form action="/checkPassengers" method="POST">
+    <input type="int" name = "flight_num" placeholder="Flight Number" required/> </br>
+    <input type="text" name = "dep_date_time" placeholder="Departure Date and Time (yyyy-mm-dd hh:mm:ss)" required/> </br>
+<input type="submit" value = "Check" />
+
+<h3>Search Flights</h3>
+<form action="/searchFlights" method="POST">
+    <input type="text" name = "dep_airport" placeholder="Departure Airport"/> </br>
+    <input type="text" name = "arrival_airport" placeholder="Arrival Airport"/> </br>
+    <p style="display: inline">Departure date and time range:</p>
+    <input  style="display: inline" type="text" name = "dep_date_time_beg" placeholder="Departure Date and Time (yyyy-mm-dd hh:mm:ss)"/>
+    <p  style="display: inline"> - </p>
+    <input  style="display: inline" type="text" name = "dep_date_time_end" placeholder="Departure Date and Time (yyyy-mm-dd hh:mm:ss)"/><br>
+    <p style="display: inline">Arrival date and time range:</p>
+    <input  style="display: inline" type="text" name = "arrival_date_time_beg" placeholder="Arrival Date and Time (yyyy-mm-dd hh:mm:ss)"/>
+    <p  style="display: inline"> - </p>
+    <input  style="display: inline" type="text" name = "arrival_date_time_end" placeholder="Arrival Date and Time (yyyy-mm-dd hh:mm:ss)"/> </br>
+<input type="submit" value = "Search" /><br><br>
+</form>
+
+
+{% if flights %}
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+<h3>Flights</h3>
+<table>
+    <tr>
+        <td>Flight Number</td>
+        <td>Departure Time</td>
+        <td>Arrival Time</td>
+        <td>Departure Airport</td>
+        <td>Arrival Airport</td>
+        <td>Airplane ID</td>
+        <td>Status</td>
+    </tr>
+    {% for flight in flights %}
+    <tr>
+        <td>{{ flight.flight_num }}</td>
+        <td>{{ flight.dep_date_time }}</td>
+        <td>{{ flight.arrival_date_time }}</td>
+        <td>{{ flight.dep_airport }}</td>
+        <td>{{ flight.arrival_airport }}</td>
+        <td>{{ flight.ID }}</td>
+        <td>{{ flight.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+<a href="/change_status_page">Change status of a flight</a><br>
+<a href="/add_airplane_page">Add an airplane</a><br>
+<a href="/add_airport_page">Add an airport</a><br>
+<a href="/view_flight_ratings_prep">View flight ratings</a><br>
+<a href="/reports">View reports</a><br>
+
+<form action="/addPhoneNumber" method="POST">
+    <input type="number" name = "phone_number" placeholder = "insert new phone number"> </br>
+<input type="submit" value = Enter />
+</form>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

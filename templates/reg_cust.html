@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+
+    <form action="/registerAuthCust" method="POST">
+        <input type="text" name = "email" placeholder="email" required/> </br>
+        <input type="password" name = "password" placeholder="password" required/></br>
+        <input type="text" name = "name" placeholder="name" required/> </br>
+        <input type="number" name = "building_number" placeholder="building number" required/> </br>
+        <input type="text" name = "street" placeholder="street" required/> </br>
+        <input type="text" name = "city" placeholder="city" required/> </br>
+        <input type="text" name = "state" placeholder="state" required/> </br>
+        <input type="number" name = "phone_number" placeholder="phone number" required/> </br>
+        <input type="text" name = "passport_number" placeholder="passport number" required/> </br>
+        <label for="passport_expiration">Passport Expiration Date (YYYY-MM-DD)</label>
+        <input type="date"  id = 'passport_expiration' name = "passport_expiration"  required/> </br>
+        <input type="text" name = "passport_country" placeholder="passport country" required/> </br>
+        <label for="date_of_birth">Date of Birth (YYYY-MM-DD)</label>
+        <input type="date" id = "date_of_birth" name = "date_of_birth"  required/> </br>
+        <input type="submit" value = Register />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+</body>
+</html>

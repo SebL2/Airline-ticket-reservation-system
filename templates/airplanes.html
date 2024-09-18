@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Airplanes</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+</style>
+
+{% if data %}
+    <h3>Airplanes</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Seats</th>
+            <th>Manufacturer</th>
+            <th>Age</th>
+        </tr>
+        {% for airplane in data %}
+            <tr>
+                <td>{{ airplane.ID }}</td>
+                <td>{{ airplane.seats }}</td>
+                <td>{{ airplane.manufacturer }}</td>
+                <td>{{ airplane.age }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<a href="/add_airplane_page">Add an airplane</a><br>
+<a href="/flights_staff">Back to staff page</a>
+</body>
+</html>

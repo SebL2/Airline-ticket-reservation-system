@@ -1,0 +1,126 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	margin: 0;
+	padding: 20px;
+	color: #333;
+}
+
+h2 {
+	color: #2c3e50;
+	font-size: 24px;
+}
+
+a {
+	color: #3498db;
+	text-decoration: none;
+	font-weight: bold;
+	margin-right: 15px;
+} 
+
+.header{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+.error{
+	background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 300px;
+}
+.top{
+	display: flex;
+    justify-content: flex-start; /* Align buttons to the left */
+    align-items: center;         /* Center items vertically */
+    padding: 10px 20px;          /* Padding around the content */
+    background-color: rgb(128, 19, 190);   /* Background color */
+    position: fixed;             /* Fixed position at the top */
+    width: 100%;                 /* Full width of the viewport */
+    top: 0;                      /* Align to the top */
+    left: 0;                     /* Align to the left */
+    z-index: 1000;  
+}
+/* Form styles */
+form {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 300px;
+	margin: 20px auto;
+}
+.button{
+	border: black;
+
+}
+
+.button:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+
+input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: #3498db;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #2980b9;
+} 
+
+/* Table styles */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #3498db;
+	color: white;
+}
+
+tr:hover {
+	background-color: #f1f1f1;
+} 
+
+/* Layout styles */
+section {
+	display: flex;
+	justify-content: spaces-around;
+	margin-top: 20px;
+}
+
+/* div {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+} */

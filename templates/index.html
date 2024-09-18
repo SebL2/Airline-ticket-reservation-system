@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Link to External CSS File -->
+	<link rel="stylesheet" href="../static/index.css">
+	
+</head>
+
+<body>
+	<div class = "top">
+		<a href="/login" class = "button">Login</a>
+		<a href="/reg" class = "button">Register</a>
+	</div>
+	<div class = "header">
+		{% if message %}
+			<p class = "error">{{ message }}</p>
+		{% endif %}
+	</div>
+	<form action="/flightInformation" method="POST">
+		<input type="text" name = "source" placeholder="Source Airport" required/> </br>
+		<input type="text" name = "destination" placeholder="Destination Airport" required/> </br>
+		<input type="text" name = "departure" placeholder="departure date (yyyy-mm-dd)" required/> </br>
+		<input type="text" name = "return" placeholder="return date (yyyy-mm-dd)" value="NULL" /> </br>
+		<input type="submit" value = Search />
+	</form>
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		}
+		</style>
+	<section style="display: flex; justify-content: space-around;">
+		<div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+			{% if data1 %}
+			<h2>DEPARTURES</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Flight Number</th>
+						<th>Departure Time</th>
+						<th>Airline</th>
+						<th>Airplane ID</th>
+						<th>Arrival Time</th>
+						<th>Arrival Airport</th>
+						<th>Departure Airport</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for line in data1 %}
+					<tr>
+						<td>{{ line['flight_num'] }}</td>
+						<td>{{ line['dep_date_time'] }}</td>
+						<td>{{ line['airline_name'] }}</td>
+						<td>{{ line['ID'] }}</td>
+						<td>{{ line['arrival_date_time'] }}</td>
+						<td>{{ line['arrival_airport'] }}</td>
+						<td>{{ line['dep_airport'] }}</td>
+						<td>{{ line['status'] }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% endif %}
+		</div>
+		<div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+			{% if data2 %}
+			<h2>ARRIVALS</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Flight Number</th>
+						<th>Departure Time</th>
+						<th>Airline</th>
+						<th>Airplane ID</th>
+						<th>Arrival Time</th>
+						<th>Arrival Airport</th>
+						<th>Departure Airport</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for line in data2 %}
+					<tr>
+						<td>{{ line['flight_num'] }}</td>
+						<td>{{ line['dep_date_time'] }}</td>
+						<td>{{ line['airline_name'] }}</td>
+						<td>{{ line['ID'] }}</td>
+						<td>{{ line['arrival_date_time'] }}</td>
+						<td>{{ line['arrival_airport'] }}</td>
+						<td>{{ line['dep_airport'] }}</td>
+						<td>{{ line['status'] }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			{% endif %}
+		</div>
+
+	</section>
+
+</body>
+
+</html>

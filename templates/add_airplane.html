@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Add Airplane</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<form action="/addAirplane" method="POST">
+    <input type="int" name = "ID" placeholder="Airplane ID" required/> </br>
+    <input type="int" name = "seats" placeholder="Seats" required/> </br>
+    <input type="text" name = "manufacturer" placeholder="Manufacturer" required/> </br>
+    <input type="int" name="age" placeholder="Age" required/> </br>
+    <input type="submit" value = Add />
+</form>
+
+</body>
+
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<head/>
+<body>
+
+<h1>Flights for {{username['name']}}<h1/>
+{% if data%}
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<table>
+    <tr>
+        <td>Flight Number</td>
+        <td>Departure date and time</td>
+        <td>Airline</td>
+        <td>Ticket ID</td>
+        <td>Arrival date and time</td>
+        <td>Arrival airport</td>
+        <td>Departure airport</td>
+        <td>Status</td>
+        <td>Cancel flight</td>
+        <td>Ratings and comments</td>
+        {% for line in data %}
+        <tr>
+            <td>{{line['flight_num']}}</td>
+            <td>{{line['dep_date_time']}}</td>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['ID']}}</td>
+            <td>{{line['arrival_date_time']}}</td>
+            <td>{{line['arrival_airport']}}</td>
+            <td>{{line['dep_airport']}}</td>
+            <td>{{line['status']}}</td>
+            {%if line['cancel']%}
+            <td><form action="/cancelFlight" method = "POST">
+                <input type= "hidden" name = 'ID' value = '{{line['ID']}}'>
+                <input type="submit" value =  "Cancel Flight" /> 
+            </form> </td>
+            {%else%}
+                <td> Unable to cancel </td>
+            {%endif%}
+
+            {%if line['rating'] %}
+                <td><form action="/rateFlight" method = "POST">
+                    <input type= "hidden" name = 'airline_name' value = '{{line['airline_name']}}'/>
+                    <input type= "hidden" name = 'flight_num' value = '{{line['flight_num']}}'/>
+                    <input type= "hidden" name = 'dep_date_time' value =' {{line['dep_date_time']}}'/>
+                    <input type = 'number' name = 'Rating' placeholder = 'Rating' min = '1' max = '5'/>
+                    <input type = "text" name = 'Comment' placeholder = 'Comments'>
+                    <input type="submit" value =  "Submit" /> 
+                </form></td>
+            {%else%}
+                <td> Unable to give rating - flight not taken yet </td>
+           
+            {%endif%}
+        {% endfor %}
+            
+
+        </tr>
+    </tr>
+  
+</table>
+{%endif%}
+
+
+{% if error %}
+<p>Ticket does not exist</p>
+{%endif%}
+<body/>
+
+
+<html/>

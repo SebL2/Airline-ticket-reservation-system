@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Flight Status Change</h1>
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+<h3>Change Status</h3>
+<form action="/changeStatus" method="POST">
+    <input type="int" name = "flight_num" placeholder="Flight Number" required/> </br>
+    <input type="text" name = "dep_date_time" placeholder="departure date and time (yyyy-mm-dd hh:mm:ss)" required/> </br>
+    <input type="text" name = "status" placeholder="status" required/> </br>
+    <input type="submit" value = Change />
+</form>
+
+</body>
+
+
+</html>
